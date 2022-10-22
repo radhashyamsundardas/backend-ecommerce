@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { regexp } = require('sequelize/types/lib/operators');
 const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
@@ -6,6 +7,19 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
+ Category.findAll(
+  {
+    include: {
+      model:Product,
+      attributes: ['product_name']
+    }
+  }
+ )
+ .then (information => res.json(information))
+ .catch(err => {
+  console.log(err);
+  res.status(500).json(err);
+ });
 });
 
 router.get('/:id', (req, res) => {
