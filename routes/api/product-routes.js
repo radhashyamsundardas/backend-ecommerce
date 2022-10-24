@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     .catch((err) => {
       res.json(err);
     });
-
+});
   // get one product
   router.get('/:id', (req, res) => {
     // find a single product by its `id`
@@ -147,6 +147,4 @@ router.get('/', async (req, res) => {
       res.status(505).json(error);
   }
 });
-
-  
-    module.exports = router;
+module.exports = router;
