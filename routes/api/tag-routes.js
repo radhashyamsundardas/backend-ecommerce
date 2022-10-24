@@ -3,10 +3,10 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
-router.get('/', async(req, res) => {
+router.get('/', async (req, res) => {
   // find all tags
   // be sure to include its associated Product data
-  try{
+  try {
     const tag = await tag.findAll({
       include: [
         {
@@ -16,18 +16,48 @@ router.get('/', async(req, res) => {
     });
     res.json(tag);
   }
-  catch(error){
-    res.status(503).json(error);
+  catch (error) {
+    res.status(509).json(error);
   }
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
-});
+  try{
+    const tagId = await Tag.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [
+        {
+          model: Product,
+        },
+      ],
+    });
+    if (tagId){
+      res.json(tagId);
+    } else {
+      res.status(509).json({error: 'no id with this tag'})
+    }
+  }  catch (error){
+    res.status(510).json(error);
+  }
+    
+  }
+);
 
-router.post('/', (req, res) => {
+
+
+
+router.post async('/', (req, res) => {
   // create a new tag
+  try{ const 
+
+  }
+  catch(){
+
+  }
 });
 
 router.put('/:id', (req, res) => {
