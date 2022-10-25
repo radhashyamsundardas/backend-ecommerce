@@ -82,6 +82,18 @@ router.put('/:id', async(req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
+
+const delProd = Product.findByPk(req.params.id);
+Product.destroy({
+  where:{id:req.params.id,},
+})
+.then((Product) => {
+  res.json(`$(delProd) was removed`);
+})
+.catch(error) {
+  res.json(err);
+};
+
 });
 
 module.exports = router;
