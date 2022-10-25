@@ -12,8 +12,8 @@ My motive to build is to build back end for an e-commerce site using  Express.js
 TO RUN THIS PROJECT YOU NEED TO USE 4 DEPENDENCIES WHICH ARE EXPRESS, DOTENV, MYSQL2, SEQUELIZE.
 
 ## LINKS
-YOUTUBE LINK :-
-GITHUB REPOSITORY LINK :-
+YOUTUBE LINK :- https://youtu.be/ayHEAg3UD00
+GITHUB REPOSITORY LINK :- https://github.com/radhashyamsundardas/backend-ecommerce
 
 
 
