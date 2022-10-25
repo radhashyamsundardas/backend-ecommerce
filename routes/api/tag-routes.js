@@ -87,13 +87,11 @@ const delProd = Product.findByPk(req.params.id);
 Product.destroy({
   where:{id:req.params.id,},
 })
-.then((Product) => {
+.then((delProd) => {
   res.json(`$(delProd) was removed`);
 })
-.catch(error) {
+.catch(error) 
   res.json(err);
-};
-
 });
 
 module.exports = router;
