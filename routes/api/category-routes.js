@@ -8,12 +8,12 @@ router.get('/', (req, res) => {
   // be sure to include its associated Products
  Category.findAll(
   {
-    include: {
-      model:Product, attributes: ['product_name']
-    }
+    include: 
+      // model:Product, attributes: ['product_name']
+    [Product]
   }
  )
- .then (information => res.json(information))
+ .then ((information) => res.json(information))
  .catch(err => {
   console.log(err);
   res.status(500).json(err);
@@ -36,9 +36,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
-  Category.create({
-    Category_name: req.body.category_name
-  })
+  Category.create(
+    req.body
+  )
   .then(information => res.json(information))
   .catch(err => {
     console.log (err);
@@ -51,7 +51,7 @@ router.put('/:id', (req, res) => {
   // update a category by its `id` value
   Category.update(
     {
-    Category_name: req.body.category_name
+    category_name: req.body.category_name
   },
   {
     where: {
